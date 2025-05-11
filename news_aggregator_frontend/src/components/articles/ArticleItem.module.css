@@ -1,0 +1,33 @@
+.article {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background-color: #fff;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .date,
+  .source,
+  .category,
+  .tags,
+  .published {
+    font-size: 0.875rem;
+    color: #555;
+  }
+  
+  .image {
+    margin-top: 0.5rem;
+    border-radius: 4px;
+  }
+  
