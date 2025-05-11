@@ -57,7 +57,6 @@ export default function ArticleItem({ article }) {
           src={article.image_url}
           alt="Превью"
           className={styles.image}
-          style={{ maxWidth: '100%', marginTop: '1rem' }}
         />
       )}
     </div>
