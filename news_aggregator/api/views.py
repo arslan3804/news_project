@@ -5,7 +5,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from django.shortcuts import get_object_or_404
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .filters import ArticleFilter
-from news.models import NewsSource, Category, Tag, Article, Comment
+from news.models import NewsSource, Category, Tag, Article
 from .permissions import AdminOnlyCreateUpdateDelete
 from .serializers import (
     NewsSourceSerializer,
@@ -32,7 +32,7 @@ class TagViewSet(viewsets.ModelViewSet):
     permission_classes = (AdminOnlyCreateUpdateDelete,)
 
 class ArticleViewSet(viewsets.ModelViewSet):
-    queryset = Article.objects.all().order_by('-published_at')
+    queryset = Article.objects.all().order_by('-created_at')
     serializer_class = ArticleSerializer
     permission_classes = (AdminOnlyCreateUpdateDelete,)
     filter_backends = (DjangoFilterBackend,)
@@ -53,7 +53,7 @@ class CommentViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         article_id = self.kwargs.get('article_id')
         article = get_object_or_404(Article, id=article_id)
-        return article.comments.all()
+        return article.comments.all().order_by('-created_at')
 
     def perform_create(self, serializer):
         article_id = self.kwargs.get('article_id')
