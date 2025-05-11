@@ -81,8 +81,20 @@ export default function ArticleDetail() {
       </p>
 
       {article.image_url && (
-        <img src={article.image_url} alt="Превью" className="img-fluid mb-3" />
-      )}
+        <img
+          src={article.image_url}
+          alt="Превью"
+          style={{
+            maxWidth: '450px',
+            maxHeight: '300px',
+            width: 'auto',
+            height: 'auto',
+            objectFit: 'contain',
+            display: 'block',
+            marginBottom: '1rem',
+          }}
+        />
+      )}      
 
       <p><strong>Источник:</strong> {article.source_detail?.name}</p>
       <p><strong>Категория:</strong> {article.category_detail?.name}</p>
