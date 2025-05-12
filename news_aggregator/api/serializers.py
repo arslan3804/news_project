@@ -1,7 +1,6 @@
 from rest_framework import serializers
-from rest_framework.relations import SlugRelatedField
 
-from news.models import NewsSource, Category, Tag, Article, TagArticle, Comment
+from news.models import NewsSource, Category, Tag, Article, Comment
 
 
 class NewsSourceSerializer(serializers.ModelSerializer):
