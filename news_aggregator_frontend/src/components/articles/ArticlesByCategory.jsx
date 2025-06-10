@@ -16,8 +16,13 @@ export default function ArticlesByCategory() {
       .catch(err => console.error('Ошибка загрузки статей по категории:', err));
 
     // Загрузка информации о категории
-    api.get(`/categories/${category_slug}/`)
-      .then(res => setCategory(res.data))
+    api.get('/categories/')
+      .then(res => {
+        const foundCategory = res.data.find(cat => cat.slug === category_slug);
+        if (foundCategory) {
+          setCategory(foundCategory);
+        }
+      })
       .catch(err => console.error('Ошибка загрузки информации о категории:', err));
   }, [category_slug]);
 
